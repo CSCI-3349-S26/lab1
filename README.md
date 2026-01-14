@@ -7,12 +7,12 @@
 
 * Go to your repo and click the green Code button, then the copy button.
 * Launch a terminal.
-* Navigate to where you'd like to keep your repos for this class (e.g., ``~/Desktop/CSCI3349/``).
-* Type ```git clone``` and then paste in what you copied, above.
+* Navigate in the terminal to where you'd like to keep your repos for this class. For instance, if you created a folder on your Desktop with the name `CSCI3349`, you can navigate to that folder in a terminal by typing ``cd ~/Desktop/CSCI3349/``.
+* Type ```git clone``` and then paste in the link to your repo that you copied, above.
 
 
-4. Now, navigate in the file system to the folder on your computer where you cloned this repo, and you will see a file called ``lab1.html``. Double click on the file, which will launch it in your web browser, and then complete the assignment as described in that html file.
+4. Now, navigate in on your computer (in this case, as you usually do with your mouse and clicking on folders) to the folder on your computer where you cloned this repo, and you will see a file called ``lab1.html``. Double click on the file, which will launch it in your web browser, and then complete the assignment as described in that html file.
 
-5. You'll be submitting the completed assignment -- a PDF -- using GitHub. Move the PDF you created with your answers to the questions in the html file to the ``lab1-<yourusername>`` directory on your own computer that you created when you cloned this repo. Then either use the GitHub Desktop app to add, committ, and push your PDF to your repo on the internet or use the command line as I showed you in class: ``git add <filename>``, ``git commit -m "your comment"``, ``git push``. 
+5. You'll be submitting the completed assignment -- a PDF -- using GitHub. Move the PDF you created with your answers to the questions in the html file to the ``lab1-<yourusername>`` directory on your own computer that you created when you cloned this repo. Then either use the GitHub Desktop app to add, committ, and push your PDF to your repo on the internet or use the command line as I showed you in class on Thursday: ``git add <filename>``, ``git commit -m "your comment"``, ``git push``. 
 
 **This lab is due Thursday, January 22 @ 11:59pm**
