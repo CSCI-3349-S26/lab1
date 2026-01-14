@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<body>
+<h1>Lab 1: Using a unix command line</h1>
+<p>In this lab, you will be learning a little bit about how to use a unix command line to explore a file systems and quickly examine files. You'll be completing this lab individually, but you are welcome to confer with your classmates if you are stuck or have questions.</p>
+
+<p>In this lab, I'll use the following conventions:</p>
+<ul>
+<li>Code that you must type from the command line will appear in <code><font color="blue">this font</font></code> in blue.</li>
+<li>Output that appears on the command line will appear in <code><font color="red">this font</font></code> in red.</li>
+<li>Questions that must be answered in your lab report will be indicated by a <b>boldface</b> letter <b>Q</b>, followed by a number (e.g., <b>Q17)</b>.</li>
+</ul>
+
+<p><b>Add, commit, and push to this GitHub repo a SINGLE PDF file containing the answers to all questions below beginning with <b>Q</b> by 11:59pm EST on Thursday, January 22.</b></p>
+
+
+<h2>0. Getting started</h2>
+<p>If you have a Windows machine and are running Windows 10 or higher, you should be able to complete this lab with the Windows Subsystem for Linux, which 
+  you can read about <a href="https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/">here</a>, 
+  <a href="https://itsfoss.com/install-bash-on-windows/">here</a>, 
+  <a href="https://www.windowscentral.com/how-install-bash-shell-command-line-windows-10">here</a>, or ask GPT or Copilot, or do a web search of your own. 
+  If you have something lower than Windows 10, you'll need to upgrade or find a unix machine to connect to. 
+  Once you have a terminal running as described in the previous link, go to step 1.</p>
+
+<p>If you are running Linux, you probably don't need to do this lab, but you might learn something! Launch a terminal and go to step 1.</p>
+
+<p>If using a Mac, go to Spotlight (the magnifying glass in the upper right corner), and type "Terminal" in the search box. Double-click on the Terminal icon next to the word "Terminal.app" in the left column to launch a terminal.</p>
+
+<h2>1. Examining a unix command line</h2>
+A terminal window will open, and you'll see a command line, which will look something like this:</p>
+
+<code>
+<font color="red">
+Last login: Sun Jan 14 01:26:30 on ttys001<br>
+[-bash ~]$
+</font>
+</code>
+
+<p>The exact text that will appear as the command line prompt will vary, but it will usually look something that I have shown here. 
+  (For instance, nowadays on a Mac, you won't get a bash shell by default, but it doesn't really matter what it says.)
+  In the following sections where I ask you to type commands, I'll always show the <code><font color="red">[-bash ~]$</font></code> prompt before the commands I expect you to type. You should not type <code><font color="red">[-bash ~]$</font></code>.</p>
+
+<h2>2. Navigating: <code>pwd, mkdir, cd, ls</code></h2>
+<p>At the command line, type the following, remembering just to type the stuff that appears in <code><font color="blue">blue type like this</font></code> after the dollar sign:</p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">pwd</font></code>
+
+<p>This command prints out the current directory of the terminal's shell (i.e., the directory that you are currently in). It will produce output that looks something like this on a Mac (but with your username instead of mine):</p>
+
+<code><font color="red">/Users/emilypx/</font></code>
+
+<p>Now you'll make a new directory called Lab1, like this:</p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">mkdir Lab1</font></code>
+
+<p>Navigate into your new directory, like this.</p> 
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">cd Lab1</font></code>
+
+<p style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em;">
+Helpful hint: Whenever you need to type a file name or directory name, you can just type the first few letters and hit the TAB key. If there is a directory or file uniquely beginning with those first few letters, TAB will fill in the rest for you.</p>
+
+<p>You can check to make sure you really are in <code>Lab1</code> like this, of course:</p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">pwd</font></code>
+
+<p>Have a look at what's in your directory you just created.</p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">ls</font></code>
+
+<p>Nothing is there yet. So let's navigate to some other directory that actually has stuff in it. 
+
+<p style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em;">Helpful hint: You can use <code>~</code> to indicate your home directory, which on a Mac corresponds to <code>/Users/yourusername</code>.</p>
+
+<p>Below is an example of an interesting directory on a Mac, <code>~/Library</code>. If you're running Windows or Linux, just try navigating to any old directory that you know has a lot of stuff in it, like your documents or desktop directory. </p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue"> cd ~/Library </font></code><br>
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue"> ls </font></code>
+
+<p><b>Q1: What are the first and last items output by that command?</b></p>
+
+<p>Unix commands can have flags that modify what they do. Try this, below.</p> 
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue"> ls -l </font></code><br>
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue"> ls -lh </font></code><br>
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue"> ls -lt </font></code><br>
+
+<p style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em;">Helpful hint: You can use the up arrow to automatically insert the previous command.</p>
+
+<p><b>Q2: In plain English, what do you think the three flags <code>-l -h</code> and <code>-t</code> do?</b></p>
+<p><b>Q3: What does the very first character on each line of output indicate?</b></p>
+
+
+<p>To get a full list of the flags for any command using <code>man</code>. When you use <code>man</code>, the first screenful of information will appear, and there will be a little colon at the botton of the screen. You can hit the space bar to show the next screenful of text. If you hit <code>q</code>, you'll get the command line back. Try it!</p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">man ls</font></code>
+
+<p>To see all the files that begin with "A" in your current directory and the contents of all the directories in your current directory that begin with "A" , you can use the wildcard character *: </p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue"> ls A* </font></code>
+
+<p><b>Q4: What command will list every file and the contents of every directory ending in "s"?</b><p>
+
+<p>Using <code>cd</code> move back into the <code>Lab1</code> directory you created. If you can't remember where you created that directory, scroll up to where you most recently typed <code>pwd</code>. The output of that command should be the full path to <code>Lab1</code>.</p>
+
+<p>Once you are in your <code>Lab1</code> directory, download War and Peace, as follows. (Note: On a regular unix distribution, you can use the command <code>wget</code> instead of <code>curl</code>.) </p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">cd ../</font></code><br>
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">cd Lab1</font></code><br>
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">curl -O https://people.rit.edu/emilypx/warandpeace.txt</font></code>
+
+<p>Here, I used <code>..</code> to back up one directory. Then I went back down into the <code>Lab1</code> directory. Depending on where you navigated to above when experimenting with <code>cd</code> you might need to type something other than <code>..</code>.
+
+<p><b>Q5: What would be another command to move to your <code>Lab1</code> directory?</b><p>
+
+<h2>3. Looking at files: <code>less, head, tail, cat, wc</code></h2>
+
+<p>You can look at War and Peace using the <code>less</code> command. It's like <code>man</code> in that you can hit the space bar to keep getting screenfuls of text. Type <code>q</code> to escape from <code>less</code>, which will bring you back to a command line.</p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">less warandpeace.txt</font></code>
+
+<p>You can also just look at part of a file. <code>head</code> will print out the first 10 lines. <code>tail</code> will print out the last 10 lines. If you want to print out more or less than 10, you can just specify the desired number preceded by a hyphen, as shown in the second example below:<p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">head warandpeace.txt</font></code><br>
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">tail -25 warandpeace.txt</font></code>
+
+<p><b>Q6: What is the third to last line of the warandpeace.txt file?</b></p>
+
+<p>The stuff that gets printed out to the screen can get <i>redirected</i> to a new file using the &gt; symbol.</p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">tail warandpeace.txt > warandpeace-last10.txt</font></code>
+
+<p>And you can look at what's in the file you just created using <code>cat</code>.</p> 
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">cat warandpeace-last10.txt</font></code>
+
+<p>This prints out *all* of the file, so you might not want to do this with the actual War and Peace file. But if you did this, and you got tired of looking at all the output, you could hold down the <code>control</code> key and press <code>c</code>.</p>
+
+<p>Just how long is War and Peace, anyway? You can find out like this:</p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">wc warandpeace.txt</font></code>
+
+<p><b>Q7: How many characters, words, and lines are in War and Peace?</b></p>
+
+<h2>4. Searching in files: <code>grep</code></h2>
+
+<p>Suppose you want to know if there are princes in War and Peace. You can find out using <code>grep</code>, which searches a file for matches for the expression you provide.</p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">grep "prince" warandpeace.txt</font></code>
+
+<p>Lots of princes, apparently. You can find out exactly how many lines contain "prince" like this:</p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">grep -c "prince" warandpeace.txt</font></code>
+
+<p>Go run your first <code>grep</code> command, with out the <code>-c</code>, and look more closely at the output. Does every line have the <b>word</b> "prince" in it?</p>
+
+<p><b>Q8: What is <code>grep</code> finding for you instead of just the word "prince"?</b></p>
+
+<p><b>Q9: Use the <code>man</code> page for <code>grep</code> to figure out how to find matches only for the word "prince". There are many possibilities! What command did you use?</b></p>
+
+<p><b>Q10: How many lines contain the word "prince"?</b></p>
+
+<p><b>Q11: How many lines contain the word "princess"?</b></p>
+
+<p>Suppose you want to find every line that contains both the word "prince" and the word "princess"? We can do this using the pipe character (vertical bar <code>|</code>), like this:</p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">grep -w "prince" warandpeace.txt | grep -w "princess"</font></code>
+
+<p><b>Q12: What is a command that will print out the the number of lines containing both the word "prince" and the word "princess" but not the words "princes" or "princesses"? (Again, there are multiple possible commands that do the same thing.)</b></p>
+
+<p>Piping is very useful when you want to combine different unix commands or to combine unix commands with other programs you have written and might want to run from the command line.</p>
+
+<p>The "re" in the word "grep" stands for "regular expression". By the time you do this lab, you probably will have already learned a bit about regular expressions, which we will cover in class on Friday, January 17. Every language does regular expressions a little differently, but the basic principles are the same. <u>If you want to use the full range of regular expressions with <code>grep</code>, use the <code>-E</code> flag.</u></p>
+
+<p><b>Q13: Using regular expressions and <code>grep</code>, find every line that contains either the word "peace" or "place" (or both!). To answer this question, provide the command and the number of matching lines.</b></p>
+
+<h2>5. Packing and unpacking files: <code>tar</code></h2>
+
+<p>Now you need to download a "tarball" of files from the same location where you found War and Peace, above. The file name is <code>Books.tgz</code>, and the command you should use is <code>curl</code>. (Note: A "tarball" like a zip file. By convention, they end in <code>.tgz</code> or <code>.tar.gz</code>. You can learn more <a href="http://computing.help.inf.ed.ac.uk/FAQ/whats-tarball-or-how-do-i-unpack-or-create-tgz-or-targz-file">here</a>.)</p>
+
+<p>Unpack the tarball like this:</p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">tar xzvf Books.tgz</font></code>
+
+<p>You'll now have a directory called <code>Books</code> in addition to the Books.tgz file. 
+
+<p><b>Q14: Provide the full sequence of unix commands necessary to do the following. There is one command you haven't learned yet that you will need to call: <code>mv</code>. Use the man page (or a google search) to figure out what it does and how to use it.</p>
+<ul>
+<li>Navigate into the <code>Books</code> directory</li>
+<li>List the contents of the directory and their sizes.</li>
+<li>Move the <code>warandpeace.txt</code> file into this <code>Books</code> directory.</li>
+<li>Now make two new directories in the <code>Books</code> directory: one for books you have read (called ReadBooks), and one for books you have not read (NotReadBooks). </li>
+<li>Move the files into the appropriate directories depending on whether or not you have read them.</li>
+<li>Back up into your <code>Lab1</code> directory.</li>
+</ul>
+</b>
+
+<p>Now type <code>pwd</code>. You should see something like this (but with your username):</p>
+
+<code><font color="red">/Users/emilypx/Lab1</font></code>
+
+<p>Now type <code>ls</code>. You should see something like this:</p>
+
+<code><font color="red">Books&nbsp;&nbsp;&nbsp;&nbsp;Books.tgz&nbsp;&nbsp;&nbsp;warandpeace-last10.txt</font></code>
+
+<p>Now type <code>ls Books</code>. You should see something like this:</p>
+
+<code><font color="red">NotReadBooks&nbsp;&nbsp;&nbsp;&nbsp;ReadBooks</font></code>
+
+<p>Now use <code>tar</code> to compress your <code>Books</code> directory into a tarball, like this:</p>
+
+<code><font color="red">[-bash ~]$ </font></code><code><font color="blue">tar czvf NewBooks.tgz Books/</font></code>
+
+<p><b>Q15: About how large were each of the individual files in your <code>Books</code> directory, and about how many MB in total for all five books? How large is the <code>NewBooks.tgz</code> file in MB?</b></p>
+
+<h2>6. Final instructions</h2>
+<p><b>Add, commit, and push to this GitHub repo a SINGLE PDF file containing the answers to all questions below beginning with <b>Q</b> by Thursday, January 22, 11:59pm EST.</b></p>
+
+</ul> 
+</body>
+</html>
