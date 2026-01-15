@@ -3,7 +3,7 @@
 
 2. If you aren't sure whether you have `git` installed on your computer, [follow these directions for installing `git` on your computer](https://github.com/git-guides/install-git). You might already have it installed, so be sure to check as described in these instructions.
 
-3. Clone this GitHub repo to your own computer. If you're not sure how to do this, use the [GitHub desktop app](https://desktop.github.com) or use the command line as I showed you in class:
+3. Clone this GitHub repo to your own computer. If you're not sure how to do this, I have some detailed instructions [here](https://github.com/CSCI-3349-S25/git-instructions). You can use the [GitHub desktop app](https://desktop.github.com) or use the command line as described at the end of that link and as I showed you in class:
 
 * Go to your repo and click the green Code button, then the copy button.
 * Launch a terminal.
